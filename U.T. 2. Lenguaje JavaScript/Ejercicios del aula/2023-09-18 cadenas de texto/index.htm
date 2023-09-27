@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        var nombre = 'Adolfo';
+        var apellidos = 'Martín González';
+        var poblacion = 'Lorca';
+        var pais = 'España';
+
+        var mensaje1 = 'Hola, soy ' + nombre + ' ' + apellidos + '. Vivo en ' + poblacion + '. Nací en ' + pais + '.';
+        console.log(mensaje1);
+
+        // Interpolación de cadenas - string literals - f-string
+        var mensaje2 = `Hola, soy ${nombre} ${apellidos}.
+            Vivo en ${poblacion}. Nací en ${pais}.
+        `;
+        console.log(mensaje2);
+
+
+        function mostrarMensaje(
+            nombre = 'Pepe',
+            apellidos = 'López Alegría',
+            poblacion = 'Totana',
+            pais = 'Francia'
+        ) {
+            var mensaje2 = `Hola, soy ${nombre} ${apellidos}.
+                Vivo en ${poblacion}. Nací en ${pais}.
+            `;
+            console.log(mensaje2);
+        }
+
+        mostrarMensaje();
+        mostrarMensaje(undefined, 'Sánchez Jiménez');
+
+    </script>
+</body>
+
+</html>

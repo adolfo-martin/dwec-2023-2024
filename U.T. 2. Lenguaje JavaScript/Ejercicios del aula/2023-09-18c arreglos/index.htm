@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos u arrays</title>
+</head>
+
+<body>
+    <h1>Arreglos u arrays</h1>
+
+    <script>
+        'use strict';
+
+        // Primera forma. Literal de arreglos
+        let diasSemana = [
+            'Lunes',
+            'Martes',
+            'Miércoles',
+            'Jueves',
+            'Viernes',
+            'Sábado',
+            'Domingo',
+        ];
+
+        console.log(diasSemana);
+        console.table(diasSemana);
+
+        // Segunda forma. 
+        let frutas = [];
+        frutas[0] = 'Pera';
+        frutas[1] = 'Manzana';
+        frutas[2] = '🍌';
+        frutas[3] = 'Kiwi';
+        frutas[4] = '🍉';
+
+        console.table(frutas);
+
+        // Tercera forma. Clase array
+        let alumnos = new Array();
+        alumnos.push('Martín');
+        alumnos.push('Nuria');
+        alumnos.push('Adrián');
+        alumnos.push('Javi');
+        alumnos.push('Álvaro', 'Alejandro', 'Juan', 'Jesús');
+
+        console.table(alumnos);
+
+        // Cuarta forma. Array asociativo
+        let mesesDelAño = [];
+        mesesDelAño['en'] = 'Enero';
+        mesesDelAño['fe'] = 'Febrero';
+        mesesDelAño['mr'] = 'Marzo';
+        mesesDelAño['ab'] = 'Abril';
+        mesesDelAño['my'] = 'Mayo';
+        mesesDelAño['jn'] = 'Junio';
+
+        console.table(mesesDelAño);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Document Object Model</title>
+</head>
+
+<body>
+    <h1>Continentes</h1>
+
+    <ul type="square">
+        <li>Europa</li>
+        <li>América</li>
+        <li>Asia</li>
+        <li>África</li>
+        <li>Oceania</li>
+        <li>Antartida</li>
+    </ul>
+
+    <h1>Océanos</h1>
+
+    <ol type="I" id="tOlOceans"></ol>
+
+
+    <script>
+        'use strict';
+
+        const nOl = document.getElementById('tOlOceans');
+
+        let nLi = document.createElement('li');
+        nOl.appendChild(nLi);
+
+        let nText = document.createTextNode('Océano Atlántico');
+        nLi.appendChild(nText);
+
+        nLi = document.createElement('li');
+        nOl.appendChild(nLi);
+
+        nText = document.createTextNode('Océano Índico');
+        nLi.appendChild(nText);
+
+        nLi = document.createElement('li');
+        nOl.appendChild(nLi);
+
+        nText = document.createTextNode('Océano Pacífico');
+        nLi.appendChild(nText);
+
+        nLi = document.createElement('li');
+        nOl.appendChild(nLi);
+
+        nText = document.createTextNode('Océano Ártico');
+        nLi.appendChild(nText);
+
+        nLi = document.createElement('li');
+        nOl.appendChild(nLi);
+
+        nText = document.createTextNode('Océano Antártico');
+        nLi.appendChild(nText);
+
+    </script>
+</body>
+
+</html>

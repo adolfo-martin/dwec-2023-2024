@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JAVASCRIPT o ECMASCRIPT</h1>
+    <p>JavaScript es un lenguaje que se encuentra en un montón de plataformas.</p>
+
+    <script>
+        'use strict';
+
+        document.write("<b>JavaScript</b> se imparte en Desarrollo WEC.");
+
+        let variable;
+        console.log(variable);
+        console.log(typeof (variable));
+
+        variable = 6;
+        console.log(typeof (variable));
+
+        variable = 'JavaScript';
+        console.log(typeof (variable));
+
+        variable = true;
+        console.log(typeof (variable));
+
+        variable = null;
+        console.log(typeof (variable));
+
+        variable = ['hola', 7.5, false];
+        console.log(typeof (variable));
+
+        variable = {
+            nombre: 'María',
+            apellidos: 'Jiménez',
+        };
+        console.log(typeof (variable));
+
+        function seis() {
+            return 6;
+        }
+
+        console.log(typeof (seis()));
+
+
+        // DECLARACIÓN DE VARIABLES
+
+        // 2009 - ES5
+        // edad1 = 18; // PROHIBIDA porque es variable global
+        var edad2 = 18; // PROHIBIDA
+
+        // 2015 - ES6
+        let edad3 = 18;
+        const edad4 = 18;
+        const PI = 3.141592;
+        const IVA_NORMAL = 21.0;
+        const IVA_REDUCIDO = 10.0;
+
+        // 2016 - ES7
+        // 2017 - ES8
+
+        // ES2022
+        // ES2023
+
+
+        function pruebaVariables() {
+            if (true) {
+                console.log('true');
+                console.log(nombre);
+            } else {
+                var nombre = 'Juan';
+            }
+        }
+
+        pruebaVariables();
+        // console.log(nombre);
+
+
+    </script>
+</body>
+
+</html>

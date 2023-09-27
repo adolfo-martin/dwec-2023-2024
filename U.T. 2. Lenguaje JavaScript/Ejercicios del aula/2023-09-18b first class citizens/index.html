@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>First class citizens</h1>
+
+    <h2>Funciones</h2>
+
+    <p>En JavaScript, como en otros lenguajes como Java o Python,
+        las funciones son ciudadanos de primer nivel, es decir,
+        son como los números o las cadenas de texto.
+    </p>
+
+    <script>
+        'use strict';
+
+        function siete() {
+            return 7;
+        }
+
+        console.log(siete());
+
+        let seven = siete;
+        console.log(seven());
+
+        let numero1 = siete();
+        let numero2 = seven();
+
+        //---------------------------------
+
+        function sumar(numero1, numero2) {
+            return numero1 + numero2;
+        }
+
+        function restar(numero1, numero2) {
+            return numero1 - numero2;
+        }
+
+        // callback
+        function operarYMostrarResultado(operacion, numero1, numero2) {
+            let resultado = operacion(numero1, numero2);
+            // restar(5, 2)
+            console.log(`El resultado es ${resultado}`);
+        }
+
+        operarYMostrarResultado(restar, 5, 2);
+        operarYMostrarResultado(sumar, 4, 6);
+
+    </script>
+</body>
+
+</html>
