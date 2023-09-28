@@ -5,12 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        table,
+        th,
+        td {
+            border: solid 3px blue;
+            border-collapse: collapse;
+        }
+
+        tr:first-child {
+            background-color: brown;
+            color: gold;
+        }
+
+        td:nth-child(2) {
+            text-align: right;
+        }
+
+        tr>*:nth-child(2) {
+            width: 6ch;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body>
-    <ol id="tOlEmployees"></ol>
+    <table id="tTabEmployeesNumber">
+        <tr>
+            <th>Categoría</th>
+            <th>Número empleados</th>
+        </tr>
+    </table>
 
-    <select id="tSelCategories"></select>
+    <br><br><br><br><br>
+
+    <label>Categorias: </label>
+    <select id="tSelCategories">
+        <option value="sin-seleccionar-aun" hidden>Seleccione una categoría</option>
+    </select>
+
+    <ol id="tOlEmployees"></ol>
 
     <script src="./datos_empresa.js"></script>
     <script src="./code.js"></script>

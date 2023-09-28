@@ -2,13 +2,51 @@
 
 const employees = datosEmpresa;
 
+
+//--------------------------------------------
+const result = Object.groupBy(employees, function (employee) {
+    return employee.categoria;
+});
+
+console.log(result);
+fillTableEmployeesNumber(result);
+
+function fillTableEmployeesNumber(categories) {
+    const nTable = document.getElementById('tTabEmployeesNumber');
+
+    for (const i in categories) {
+        const nTr = document.createElement('tr');
+        nTable.appendChild(nTr);
+
+        const nTdName = document.createElement('td');
+        nTr.appendChild(nTdName);
+
+        const nTextName = document.createTextNode(i);
+        nTdName.appendChild(nTextName);
+
+        const nTdQuantity = document.createElement('td');
+        nTr.appendChild(nTdQuantity);
+
+        const nTextQuantity = document.createTextNode(categories[i].length);
+        nTdQuantity.appendChild(nTextQuantity);
+    }
+}
+
+
+
+//--------------------------------------------
+
+
 const extractCategory = employee => employee.categoria;
 const categoriesWithRepeates = employees.map(extractCategory);
 // console.log(categoriesWithRepeates);
 
 
 const categoriesWithoutRepeates = calculateUniqueCategories(categoriesWithRepeates)
-console.log(categoriesWithoutRepeates);
+// console.log(categoriesWithoutRepeates);
+// fillCategoriesDropdown(...['gato', 'perro', 'hamster', 'camaleón']);
+/* operador spread */
+fillCategoriesDropdown(...categoriesWithoutRepeates);
 
 
 // function calculateUniqueCategories(repeates) {
@@ -47,7 +85,18 @@ function calculateUniqueCategories(repeates) {
 }
 
 
-function fillCategoriesDropdown(categories) {
+/* ... rest  */
+function fillCategoriesDropdown(...categories) {
+    const nSelect = document.getElementById('tSelCategories')
+
+    categories.forEach(category => {
+        const nOption = document.createElement('option');
+        nSelect.appendChild(nOption);
+        nOption.setAttribute('value', category);
+
+        const nText = document.createTextNode(category);
+        nOption.appendChild(nText);
+    });
 
 }
 
