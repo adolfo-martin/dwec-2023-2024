@@ -1,0 +1,13 @@
+{
+  "name": "2023-10-02a-un-poco-de-arrays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Adolfo Martin",
+  "license": "ISC",
+  "type": "module"
+}
