@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 2rem;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Primera sintaxis. Poner el evento en la propia etiqueta -->
+    <p onclick="alert('Has clickeado el párrafo 1')">Este es el párrafo 1</p>
+
+    <p onmouseover="mostrarMensajeDos(); mostrarMensajeDos()">Este es el párrafo 2</p>
+
+    <p onmouseover="console.log('Dentro')" onmouseout="console.log('Fuera')">Este es el párrafo 3</p>
+
+    <p id="tParFour">Este es el párrafo 4</p>
+
+    <p id="tParFive">Este es el párrafo 5</p>
+
+    <script>
+        'use strict';
+
+        function mostrarMensajeDos() {
+            alert('Has entrado en el párrafo dos');
+        }
+
+        function mostrarMensajeCuatro() {
+            alert('Has cliqueado en el párrafo cuatro');
+            // return undefined;
+        }
+
+        const nParagraph4 = document.getElementById('tParFour');
+        // nParagraph4.setAttribute('onclick', "mostrarMensajeCuatro()");
+        // Segunda sintaxis: se recupera la etiqueta y el evento se configura como un objeto
+        nParagraph4.onclick = mostrarMensajeCuatro;
+
+        // Tercera sintaxis: la que es igual a Java, y la favorita del maestro
+        const nParagraph5 = document.getElementById('tParFive');
+        nParagraph5.addEventListener('click', () => alert('Has cliqueado el párrafo 5'));
+        nParagraph5.addEventListener('click', () => console.log('Has cliqueado el párrafo 5'));
+
+
+    </script>
+</body>
+
+</html>
