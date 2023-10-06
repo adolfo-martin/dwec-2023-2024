@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td id="tTdRed" data-color-german="rot">rojo</td>
+            <td id="tTdGreen" data-color-german="grun">verde</td>
+            <td id="tTdBlue" data-color-german="blau">azul</td>
+        </tr>
+        <tr>
+            <td id="tTdYellow" data-color-german="gelb">amarillo</td>
+            <td id="tTdCyan" data-color-german="celblau">celeste</td>
+            <td id="tTdPurple" data-color-german="magerot">purpura</td>
+        </tr>
+    </table>
+
+    <br>
+    <p id="tParMessage"></p>
+
+    <script>
+        'use strict';
+
+        document.getElementById('tTdRed').addEventListener('click', showMessage);
+        document.getElementById('tTdGreen').addEventListener('click', showMessage);
+        document.getElementById('tTdBlue').addEventListener('click', showMessage);
+        document.getElementById('tTdYellow').addEventListener('click', showMessage);
+        document.getElementById('tTdCyan').addEventListener('click', showMessage);
+        document.getElementById('tTdPurple').addEventListener('click', showMessage);
+
+        function showMessage(e) {
+            const tag = e.target;
+
+            const nParagraph = document.getElementById('tParMessage');
+            const color = tag.textContent;
+            const germanColor = tag.dataset.colorGerman;
+            nParagraph.innerHTML = `Has cliqueado en el color <b>${color}</b>, que en aleman es <b>${germanColor}</b>`;
+        }
+    </script>
+</body>
+
+</html>
