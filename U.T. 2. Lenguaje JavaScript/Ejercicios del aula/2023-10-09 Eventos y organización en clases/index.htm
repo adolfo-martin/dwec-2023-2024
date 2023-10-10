@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import { PeopleRepository } from './modules/PeopleRepository.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const repository = new PeopleRepository();
+            const hairColors = repository.getHairColors();
+            fillHairColorsRadios(hairColors);
+        });
+
+        function fillHairColorsRadios(colors) {
+            const nDiv = document.getElementById('tDivHairColors');
+
+            colors.forEach(color => {
+                const nRadio = document.createElement('input');
+                nDiv.appendChild(nRadio);
+                nRadio.setAttribute('type', 'radio');
+                nRadio.setAttribute('name', 'hair-color');
+                nRadio.setAttribute('id', `tRad${color}`);
+                nRadio.setAttribute('value', color);
+                // nRadio.setAttribute('onchange', `showPeopleByHairColor('${color}')`);
+                // nRadio.onchange = showPeopleByHairColor;
+                nRadio.addEventListener('change', showPeopleByHairColor);
+
+                const nLabel = document.createElement('label');
+                nDiv.appendChild(nLabel);
+                nLabel.setAttribute('for', `tRad${color}`);
+
+                const nText = document.createTextNode(color);
+                nLabel.appendChild(nText);
+            });
+        }
+
+        function showPeopleByHairColor(e) {
+            const nRadio = e.target; /* La etiqueta que lanzo el evento */
+            const color = nRadio.value;
+
+            const repository = new PeopleRepository();
+            const people = repository.getPeopleByHairColor(color);
+            fillPeopleList(people);
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <div id="tDivHairColors">
+            <!-- <input type="radio" name="hair-color" id="tRadrubio" value="rubio">
+            <label for="tRadrubio">rubio</label> -->
+        </div>
+
+        <ol id="tOlPeople"></ol>
+    </form>
+</body>
+
+</html>
