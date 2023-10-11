@@ -25,6 +25,7 @@
                 nRadio.setAttribute('name', 'hair-color');
                 nRadio.setAttribute('id', `tRad${color}`);
                 nRadio.setAttribute('value', color);
+                nRadio.setAttribute('data-hair-color', color);
                 // nRadio.setAttribute('onchange', `showPeopleByHairColor('${color}')`);
                 // nRadio.onchange = showPeopleByHairColor;
                 nRadio.addEventListener('change', showPeopleByHairColor);
@@ -41,10 +42,28 @@
         function showPeopleByHairColor(e) {
             const nRadio = e.target; /* La etiqueta que lanzo el evento */
             const color = nRadio.value;
+            // const color = nRadio.dataset.hairColor;
 
             const repository = new PeopleRepository();
             const people = repository.getPeopleByHairColor(color);
             fillPeopleList(people);
+        }
+
+        function fillPeopleList(people) {
+            const nOl = document.getElementById('tOlPeople');
+            // nOl.innerHTML = '';
+            while (nOl.hasChildNodes()) {
+                nOl.removeChild(nOl.firstChild);
+            }
+
+
+            people.forEach(person => {
+                const nLi = document.createElement('li');
+                nOl.appendChild(nLi);
+
+                const nText = document.createTextNode(person.nombre);
+                nLi.appendChild(nText);
+            });
         }
 
     </script>

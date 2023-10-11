@@ -12,4 +12,9 @@ export class PeopleRepository {
         return Array.from(new Set(employees.map(extractHairColor)));
     }
 
+    getPeopleByHairColor(color) {
+        return employees
+            .filter(employee => employee.colorPelo === color)
+            .slice(0, 10);
+    }
 }
