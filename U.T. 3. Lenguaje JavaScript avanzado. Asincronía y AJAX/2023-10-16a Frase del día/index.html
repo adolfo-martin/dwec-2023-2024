@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            changeQuote();
+        });
+
+
+        function changeQuote() {
+            fetch('https://favqs.com/api/qotd')
+                .then(response => response.json())
+                .then(data => {
+                    const author = data.quote.author;
+                    const quote = data.quote.body;
+                    console.log(author);
+                    console.log(quote);
+                    document.getElementById('tParAuthor').textContent = author;
+                    document.getElementById('tParQuote').textContent = quote;
+                })
+                .catch(console.error);
+        }
+    </script>
+</head>
+
+<body>
+    <header>Frase del día</header>
+    <main>
+        <h2>Frase</h2>
+        <p id="tParQuote"></p>
+
+        <h2>Autor</h2>
+        <p id="tParAuthor"></p>
+
+        <br>
+        <br>
+        <button id="tButChangeQuote" type="button" onclick="changeQuote()">Cambiar frase del día</button>
+    </main>
+</body>
+
+</html>
