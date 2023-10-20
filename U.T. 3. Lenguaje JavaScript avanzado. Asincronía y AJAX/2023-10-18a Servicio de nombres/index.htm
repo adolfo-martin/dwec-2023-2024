@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./code.js"></script>
+</head>
+
+<body>
+    <header>Nombre</header>
+    <main>
+        <form class="container" onsubmit="return false">
+            <div>
+                <label>Cuántos nombres quieres:</label>
+                <input type="number" id="tNmbQuantity" value="5" min="1" max="10" required>
+            </div>
+
+            <fieldset>
+                <legend>Género</legend>
+
+                <input type="radio" name="gender" id="tRadMale" value="male">
+                <label for="">Masculino</label>
+
+                <input type="radio" name="gender" id="tRadFemale" value="female">
+                <label for="">Femenino</label>
+
+                <input type="radio" name="gender" id="tRadBoth" value="both" checked>
+                <label for="">Ambos</label>
+            </fieldset>
+
+            <button type="submit" id="tButAskfor">Pedir nombres</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                    </tr>
+                </thead>
+                <tbody id="tTdbNames"></tbody>
+            </table>
+        </form>
+
+    </main>
+    <footer>© Adolfo Martín 2023</footer>
+</body>
+
+</html>

@@ -9,6 +9,18 @@ function setup(_) {
 function getJokeInEnglish() {
     const url = 'https://api.chucknorris.io/jokes/random';
 
+    /* AJAX Asynchronous JavaScript and XML */
+    /*
+    CRUD       SQL       HTTP
+    Create     insert    POST
+    Retrieve   select    GET
+    Update     update    PUT
+    Delete     delete    DELETE
+    */
+
+    /*
+        Promise
+     */
     fetch(url)
         .then(response => response.json())
         .then(data => {

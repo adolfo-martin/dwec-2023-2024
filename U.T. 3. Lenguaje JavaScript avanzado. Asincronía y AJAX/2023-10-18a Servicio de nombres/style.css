@@ -1,0 +1,86 @@
+:root {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    --color-100: #bff1bf;
+    --color-500: #12af12;
+    --color-900: #012d01;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    background-color: var(--color-900);
+    color: var(--color-100);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.25rem;
+}
+
+header {
+    font-size: 2rem;
+}
+
+footer {
+    font-size: 0.7rem;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: var(--color-100);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+input[type="number"] {
+    width: 6ch;
+    text-align: right;
+}
+
+input[type="number"]:invalid {
+    border-color: red;
+}
+
+input[type="radio"] {
+    accent-color: var(--color-500);
+}
+
+fieldset {
+    padding: 0.5rem;
+}
+
+button {
+    width: fit-content;
+    align-self: center;
+    background-color: var(--color-500);
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: inherit;
+}
+
+table,
+tr,
+th,
+td {
+    border: solid 3px var(--color-900);
+    border-collapse: collapse;
+}
