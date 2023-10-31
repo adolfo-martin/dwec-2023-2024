@@ -1,0 +1,25 @@
+GET http://127.0.0.1:3000/api/coches
+
+###
+GET http://127.0.0.1:3000/api/coche/2
+
+### Coche que no existe
+GET http://127.0.0.1:3000/api/coche/2000
+
+###
+DELETE http://127.0.0.1:3000/api/coche/2
+
+###
+POST http://127.0.0.1:3000/api/coche
+content-type: application/x-www-form-urlencoded
+
+marca=Skoda
+&modelo=Kamiq
+
+###
+PUT http://127.0.0.1:3000/api/coche
+content-type: application/x-www-form-urlencoded
+
+id=2
+&marca=Skoda
+&modelo=Kamiq
