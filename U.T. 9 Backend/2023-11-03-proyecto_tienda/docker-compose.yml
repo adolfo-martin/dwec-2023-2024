@@ -1,0 +1,47 @@
+version: "3.1"
+
+networks:
+    myappnet:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 10.0.0.0/24 
+                  gateway: 10.0.0.1
+
+services:
+    database:
+        container_name: mysql_hardware_solutions
+        image: mysql:8.0.31-debian
+        restart: always
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: Hola1234
+            MYSQL_DATABASE: hardware_solutions
+            MYSQL_USER: adolfo
+            MYSQL_PASSWORD: Hola1234
+        volumes:
+            - ./hardwaresolutions.sql:/docker-entrypoint-initdb.d/hardwaresolutions.sql
+        hostname: mysqldbserver
+        networks:
+            myappnet:
+                ipv4_address: 10.0.0.3
+
+    web:
+        container_name: apache_hardware_solutions
+        build:
+            context: .
+            dockerfile: Dockerfile_apache_php_mysql
+        ports:
+            - "8080:80"
+        volumes:
+            - ./src/:/var/www/html/
+        hostname: phpwebserver
+        networks:
+            myappnet:
+                ipv4_address: 10.0.0.2
+
+        depends_on:
+            - database
+        
