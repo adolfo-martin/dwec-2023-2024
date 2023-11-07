@@ -1,0 +1,24 @@
+GET http://127.0.0.1:8080/rest/products.php
+
+###
+GET http://127.0.0.1:8080/rest/products.php?product_id=291
+
+###
+POST http://127.0.0.1:8080/rest/products.php
+Content-Type: application/x-www-form-urlencoded
+
+product_name=Procesador AMD 8000 3.4GHz 8cores
+&description=Procesador de 8 núcleos y frecuencia base de 3.4GHz
+&standard_cost=235
+&list_price=380
+&category_id=1
+
+
+###
+PUT http://127.0.0.1:8080/rest/products.php
+
+###
+DELETE http://127.0.0.1:8080/rest/products.php
+
+###
+GET http://127.0.0.1:8080/rest/categories.php
