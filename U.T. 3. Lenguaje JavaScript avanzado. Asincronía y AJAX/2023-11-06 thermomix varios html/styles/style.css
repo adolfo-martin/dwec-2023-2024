@@ -1,0 +1,84 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Croissant+One&display=swap'); */
+
+@font-face {
+    font-family: Agbalumo;
+    src: url(./Agbalumo-Regular.ttf);
+}
+
+:root {
+    font-family: Agbalumo, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --color-100: #f9f8f9;
+    --color-300: #e7d5e7;
+    --color-500: #a2b1ca;
+    --color-700: #27360c;
+    --color-900: #280e05;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: white;
+}
+
+body {
+    min-height: 100vh;
+    width: 1000px;
+    background-color: var(--color-300);
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer"
+    ;
+    grid-template-rows: auto auto 1fr auto;
+
+}
+
+header {
+    grid-area: header;
+    background-color: var(--color-900);
+    color: var(--color-500);
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    padding: 1rem 0;
+}
+
+nav {
+    grid-area: nav;
+    background-color: var(--color-700);
+    color: var(--color-300);
+    padding: 0.5rem 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--color-900);
+    color: var(--color-500);
+    text-align: center;
+}

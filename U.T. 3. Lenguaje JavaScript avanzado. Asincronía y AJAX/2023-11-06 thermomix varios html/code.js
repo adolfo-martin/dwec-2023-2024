@@ -1,0 +1,55 @@
+import ThermomixService from "./services/ThermomixService.js";
+
+export async function retrieveAndRenderBooks() {
+    const service = new ThermomixService();
+    const books = await service.getBooks();
+    renderBooks(books);
+}
+
+
+function renderBooks(books) {
+    const nUl = document.querySelector('#tUlBooks');
+
+    books.forEach(book => {
+        const nLi = document.createElement('li');
+        nUl.appendChild(nLi);
+        nLi.textContent = book.titulo;
+        nLi.dataset.book = book.clave;
+        nLi.addEventListener('click', gotoPageBooks);
+    });
+}
+
+
+function gotoPageBooks(e) {
+    const bookId = parseInt(e.target.dataset.book);
+    window.location = `./dishes.htm?book=${bookId}`;
+}
+
+
+function getBookIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const bookId = parseInt(params.get('book'));
+    return bookId;
+}
+
+
+export async function retrieveAndRenderDishes() {
+    const bookId = getBookIdFromUrl();
+
+    const service = new ThermomixService();
+    const dishes = await service.getDishesByBook(bookId);
+    renderDishes(dishes);
+}
+
+
+function renderDishes(dishes) {
+    const nUl = document.querySelector('#tUlDishes');
+
+    dishes.forEach(dish => {
+        const nLi = document.createElement('li');
+        nUl.appendChild(nLi);
+        nLi.textContent = dish.nombre;
+        nLi.dataset.dish = dish.clave;
+        // nLi.addEventListener('click', gotoPageDishes);
+    });
+}

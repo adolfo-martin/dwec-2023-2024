@@ -1,0 +1,13 @@
+main {
+    display: grid;
+    place-items: center;
+}
+
+.mensaje-bienvenida {
+    width: 50%;
+    font-size: 5rem;
+    display: inline;
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-700);
+}
