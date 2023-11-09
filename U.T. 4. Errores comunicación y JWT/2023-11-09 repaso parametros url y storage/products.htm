@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import { getAndRenderProducts } from '/code.js';
+
+        document.addEventListener('DOMContentLoaded', async _ => {
+            await getAndRenderProducts();
+        });
+    </script>
+</head>
+
+<body>
+    <header>Tienda</header>
+    <main>
+        <h1>PRODUCTOS</h1>
+        <table id="tTabProducts" border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+</body>
+
+</html>

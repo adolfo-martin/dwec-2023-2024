@@ -1,5 +1,13 @@
 import ThermomixService from "./services/ThermomixService.js";
 
+
+import MiHeaderComponent from './components/MiHeaderComponent.js';
+window.customElements.define('mi-header', MiHeaderComponent);
+
+import MiNavComponent from './components/MiNavComponent.js';
+window.customElements.define('mi-nav', MiNavComponent);
+
+
 export async function retrieveAndRenderBooks() {
     const service = new ThermomixService();
     const books = await service.getBooks();
@@ -36,9 +44,15 @@ function getBookIdFromUrl() {
 export async function retrieveAndRenderDishes() {
     const bookId = getBookIdFromUrl();
 
-    const service = new ThermomixService();
-    const dishes = await service.getDishesByBook(bookId);
-    renderDishes(dishes);
+    if (!bookId) {
+        const service = new ThermomixService();
+        const dishes = await service.getDishes();
+        renderDishes(dishes);
+    } else {
+        const service = new ThermomixService();
+        const dishes = await service.getDishesByBook(bookId);
+        renderDishes(dishes);
+    }
 }
 
 

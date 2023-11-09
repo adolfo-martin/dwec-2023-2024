@@ -40,7 +40,7 @@ body {
 
 }
 
-header {
+mi-header {
     grid-area: header;
     background-color: var(--color-900);
     color: var(--color-500);
@@ -52,24 +52,8 @@ header {
     padding: 1rem 0;
 }
 
-nav {
+mi-nav {
     grid-area: nav;
-    background-color: var(--color-700);
-    color: var(--color-300);
-    padding: 0.5rem 0;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 2rem;
-    list-style: none;
-}
-
-nav a {
-    text-decoration: none;
-    color: inherit;
 }
 
 main {

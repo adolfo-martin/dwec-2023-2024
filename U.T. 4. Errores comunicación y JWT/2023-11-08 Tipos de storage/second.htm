@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        strong {
+            grid-column: span 2;
+        }
+    </style>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', _ => {
+            const name = window.sessionStorage.getItem('name');
+            document.querySelector('#tTxtName').value = name;
+
+            document.querySelector('#tNumAge').value = window.localStorage.getItem('age');
+
+            const person1 = JSON.parse(window.sessionStorage.getItem('person1'));
+            document.querySelector('#tTxtPerson1').value = person1.name;
+
+            const people = JSON.parse(window.localStorage.getItem('people'));
+            document.querySelector('#tTxtPerson2').value = people[1]['name'];
+
+        });
+    </script>
+</head>
+
+<body>
+    <strong>Datos recuperados</strong>
+
+    <label>Nombre: </label>
+    <input type="text" id="tTxtName">
+
+    <label for="">Edad:</label>
+    <input type="number" id="tNumAge">
+
+    <label for="">Persona uno</label>
+    <input type="text" id="tTxtPerson1">
+
+    <label for="">Persona dos</label>
+    <input type="text" id="tTxtPerson2">
+</body>
+
+</html>

@@ -14,4 +14,20 @@ export default class ThermomixService {
         const data = await response.json();
         return data.platos;
     }
+
+    async getDishes() {
+        const books = await this.getBooks();
+
+        // const allDishes = [];
+        // for (const book of books) {
+        //     const dishes = await this.getDishesByBook(book.clave);
+        //     allDishes.push(...dishes);
+        // }
+
+        const allDishes = await Promise.all(
+            books.map(book => this.getDishesByBook(book.clave))
+        );
+
+        return allDishes.flat();
+    }
 }
