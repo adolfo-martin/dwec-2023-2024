@@ -91,6 +91,36 @@ class SolutionsRepository {
 
         $this->connection->close();
     }
+
+
+    public function updateProduct(
+        int $productId,
+        string $productName,
+        string $description,
+        float $standardCost,
+        float $listPrice,
+        int $categoryId
+    ) {
+        $this->connect();
+
+        $sql = "UPDATE products
+            SET  product_name = '$productName', description = '$description',
+            standard_cost = $standardCost, list_price = $listPrice, category_id = $categoryId
+            WHERE product_id = $productId
+        ";
+        
+        $this->connection->query($sql);
+
+        $this->connection->close();
+    }
+
+
+    public function deleteProductById(int $id) {
+        $this->connect();
+        $sql = "DELETE FROM products WHERE product_id = $id";
+        $this->connection->query($sql);    
+        $this->connection->close();
+    }
 }
 
 

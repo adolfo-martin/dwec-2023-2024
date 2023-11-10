@@ -7,7 +7,12 @@ require_once('../repositories/SolutionsRepository.php');
 header ("Content-type: application/json; charset=utf-8"); 
 header("Access-Control-Allow-Origin: *");
 
-if ($_SERVER["REQUEST_METHOD"] != 'GET' && $_SERVER["REQUEST_METHOD"] != 'POST') {
+if (
+    $_SERVER["REQUEST_METHOD"] != 'GET' && 
+    $_SERVER["REQUEST_METHOD"] != 'POST' &&
+    $_SERVER["REQUEST_METHOD"] != 'PUT' &&
+    $_SERVER["REQUEST_METHOD"] != 'DELETE'
+) {
     header('HTTP/ 400 Request method not supported');
     echo json_encode(array(
         'ok' => false,
@@ -22,6 +27,12 @@ switch($_SERVER["REQUEST_METHOD"]) {
         break;
     case 'POST':
         processPostRequest();
+        break;
+    case 'PUT':
+        processPutRequest();
+        break;
+    case 'DELETE':
+        processDeleteRequest();
         break;
 }
 
@@ -89,6 +100,21 @@ function retrieveProductById(int $id) {
 
 
 function processPostRequest() {
+    if (
+        !isset($_POST["product_name"]) ||
+        !isset($_POST["description"]) ||
+        !isset($_POST["standard_cost"]) ||
+        !isset($_POST["list_price"]) ||
+        !isset($_POST["category_id"])
+    ) {
+        header('HTTP/ 400 Cannot create product');
+        echo json_encode(array(
+            'ok' => false,
+            'message' => 'Data to create a product is not completed'
+        ));
+        exit;
+    }
+
     createProduct(
         $_POST["product_name"],
         $_POST["description"],
@@ -108,7 +134,7 @@ function createProduct(
 ) {
     try {
         $repository = new SolutionsRepository(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-        $products = $repository->createProduct(
+        $repository->createProduct(
             $productName,
             $description,
             $standardCost,
@@ -123,6 +149,106 @@ function createProduct(
         exit;
     } catch (SolutionsRepositoryException $e) {
         header('HTTP/ 400 Cannot create product');
+        echo json_encode(array(
+            'ok' => false,
+            'message' => $e->getMessage()
+        ));
+        exit;
+    }
+}
+
+
+function processPutRequest() {
+    parse_str(file_get_contents('php://input'), $_PUT);
+
+    if (
+        !isset($_PUT["product_id"]) ||
+        !isset($_PUT["product_name"]) ||
+        !isset($_PUT["description"]) ||
+        !isset($_PUT["standard_cost"]) ||
+        !isset($_PUT["list_price"]) ||
+        !isset($_PUT["category_id"])
+    ) {
+        header('HTTP/ 400 Cannot update product');
+        echo json_encode(array(
+            'ok' => false,
+            'message' => 'Data to update a product is not completed'
+        ));
+        exit;
+    }
+
+    updateProduct(
+        $_PUT["product_id"],
+        $_PUT["product_name"],
+        $_PUT["description"],
+        $_PUT["standard_cost"],
+        $_PUT["list_price"],
+        $_PUT["category_id"]
+    );
+}
+
+
+function updateProduct(
+    int $productId,
+    string $productName,
+    string $description,
+    float $standardCost,
+    float $listPrice,
+    int $categoryId
+) {
+    try {
+        $repository = new SolutionsRepository(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        $repository->updateProduct(
+            $productId,
+            $productName,
+            $description,
+            $standardCost,
+            $listPrice,
+            $categoryId
+        );
+        header('HTTP/ 200 Product updated');
+        echo json_encode(array(
+            'ok' => true,
+            'message' => 'Product updated'
+        ));
+        exit;
+    } catch (SolutionsRepositoryException $e) {
+        header('HTTP/ 400 Cannot update product');
+        echo json_encode(array(
+            'ok' => false,
+            'message' => $e->getMessage()
+        ));
+        exit;
+    }
+}
+
+
+function processDeleteRequest() {
+    if (!isset($_GET["product_id"])) {
+        header('HTTP/ 400 Cannot delete product');
+        echo json_encode(array(
+            'ok' => false,
+            'message' => 'Identifier of product is missing'
+        ));
+        exit;
+    }
+
+    deleteProduct($_GET["product_id"]);
+}
+
+
+function deleteProduct(int $productId) {
+    try {
+        $repository = new SolutionsRepository(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        $repository->deleteProductById($productId);
+        header('HTTP/ 200 Product deleted');
+        echo json_encode(array(
+            'ok' => true,
+            'message' => 'Product deleted'
+        ));
+        exit;
+    } catch (SolutionsRepositoryException $e) {
+        header('HTTP/ 400 Cannot delete product');
         echo json_encode(array(
             'ok' => false,
             'message' => $e->getMessage()
