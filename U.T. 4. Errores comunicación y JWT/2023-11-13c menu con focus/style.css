@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+header {
+    background-color: blue;
+    display: flex;
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.button-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.button-menu:focus+nav {
+    display: block;
+}
+
+.button-menu:not(:focus)+nav {
+    display: none;
+}
+
+nav {
+    background-color: green;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.level-2 {
+    display: none;
+}

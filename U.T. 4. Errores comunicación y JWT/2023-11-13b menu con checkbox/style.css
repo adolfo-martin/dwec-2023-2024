@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+header {
+    background-color: blue;
+    display: flex;
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* .checkbox-menu:checked+nav {
+    display: block;
+} */
+
+.checkbox-menu {
+    display: none;
+}
+
+.checkbox-menu:not(:checked)+nav {
+    display: none;
+}
+
+nav {
+    background-color: green;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.level-2 {
+    display: none;
+}

@@ -1,0 +1,125 @@
+@font-face {
+    font-family: Roboto;
+    src: url(/assets/RobotoCondensed-Regular.ttf);
+}
+
+:root {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    --color-100: lightgreen;
+    --color-500: green;
+    --color-900: darkgreen;
+}
+
+*,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer"
+    ;
+    grid-template-rows: auto auto 1fr auto;
+}
+
+aside.ads-left,
+aside.ads-right {
+    display: none;
+}
+
+
+
+header.page-header {
+    grid-area: header;
+    background-color: var(--color-900);
+    color: var(--color-100);
+    display: flex;
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav {
+    grid-area: nav;
+    background-color: var(--color-500);
+    color: var(--color-100);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+main {
+    grid-area: main;
+}
+
+table,
+tr,
+th,
+td {
+    border: solid 1px blue;
+    border-collapse: collapse;
+    display: none;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--color-500);
+    color: var(--color-100);
+    text-align: center;
+}
+
+.spinner-waiting {
+    width: 200px;
+    height: 200px;
+    border: solid 10px var(--color-500);
+    border-right: none;
+    border-bottom: none;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    animation: dimensions 1s linear 0s infinite alternate both;
+}
+
+.spinner-waiting::before {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border: solid 10px var(--color-500);
+    border-left: none;
+    border-top: none;
+    right: 0;
+    bottom: 0;
+    animation: dimensions 1s linear 1s infinite alternate both;
+}
+
+@keyframes dimensions {
+    from {
+        width: 200px;
+        height: 0px;
+    }
+
+    to {
+        width: 0px;
+        height: 200px;
+    }
+}
