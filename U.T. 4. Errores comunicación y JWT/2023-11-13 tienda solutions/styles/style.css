@@ -51,6 +51,18 @@ header.page-header {
     font-weight: bold;
 }
 
+.cart-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    background-color: var(--color-900);
+}
+
+.cart-button:hover+.cart-content {
+    display: block;
+}
+
 nav {
     grid-area: nav;
     background-color: var(--color-500);
@@ -77,7 +89,6 @@ th,
 td {
     border: solid 1px blue;
     border-collapse: collapse;
-    display: none;
 }
 
 footer {
