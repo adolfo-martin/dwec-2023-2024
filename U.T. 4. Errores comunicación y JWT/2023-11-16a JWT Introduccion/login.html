@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <script type="module">
+        import { openSpinner, closeSpinner } from '/spinner.lib.js';
+
+        document.addEventListener("DOMContentLoaded", _ => {
+            document.querySelector('input[type="submit"]').addEventListener('click', validateUser);
+        });
+
+
+        async function validateUser() {
+            openSpinner();
+
+            const username = document.querySelector('#tTxtUsuario').value;
+            const password = document.querySelector('#tPasPassword').value;
+
+            const response = await fetch('http://127.0.0.1:9001/api/login_user', {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+            const token = data.accessToken;
+            window.localStorage.setItem('token', token);
+            closeSpinner();
+            // alert(token)
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return false">
+        <header>Autenticación de usuarios</header>
+        <label>Usuario: </label>
+        <input type="text" value="sonia.silverado" id="tTxtUsuario" pattern="[a-z]+\.[a-z0-9]+"
+            title="El formato es 'nombre.apellido'" required>
+
+        <label>Contraseña</label>
+        <input type="password" value="s" id="tPasPassword" required
+            title="La contraseña tiene al menos 8 caracteres, mayúsculas, minúsculas y números.">
+
+        <input type="submit" value="Validar usuario">
+    </form>
+</body>
+
+</html>
