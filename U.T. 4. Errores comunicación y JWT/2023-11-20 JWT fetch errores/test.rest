@@ -1,0 +1,18 @@
+###
+
+POST http://127.0.0.1:9001/api/login_user
+content-type: application/x-www-form-urlencoded
+
+username=sonia.silverad
+&password=s
+
+###
+
+GET http://127.0.0.1:9001/api/validate_token
+Content-Type: application/json
+
+{"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmlhLnNpbHZlcmFkbyIsImZpcnN0bmFtZSI6IlNvbmlhIiwibGFzdG5hbWUiOiJTaWx2ZXJhZG8iLCJpYXQiOjE3MDAxMjE4ODIsImV4cCI6MTcwMDEzNjI4Mn0.pGUWWi1EPMtDJw_qkya-Tog59IFfHA7TUIQejj3IRbI"}
+
+###
+GET http://127.0.0.1:9001/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmlhLnNpbHZlcmFkbyIsImZpcnN0bmFtZSI6IlNvbmlhIiwibGFzdG5hbWUiOiJTaWx2ZXJhZG8iLCJpYXQiOjE3MDA0NzQ3NjYsImV4cCI6MTcwMDQ4OTE2Nn0.wBsO9Yy-y2TY7eT7ERjkn0admaWlammdkA8H4df8Tr0
