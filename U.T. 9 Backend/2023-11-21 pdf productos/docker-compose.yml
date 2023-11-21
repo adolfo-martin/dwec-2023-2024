@@ -1,0 +1,11 @@
+version: "3.1"
+
+services:
+  web:
+    container_name: pdf_server
+    image: php-mysqli-mpdf:0.1
+    restart: always
+    ports:
+      - "9500:80"
+    volumes:
+      - ./src:/var/www/html/pdf/
