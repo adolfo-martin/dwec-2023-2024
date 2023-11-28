@@ -1,0 +1,14 @@
+FROM mysql:8.0.31-debian
+ENV MYSQL_ROOT_PASSWORD Hola1234
+ENV MYSQL_DATABASE hardware_solutions
+ENV MYSQL_USER hardware_solutions
+ENV MYSQL_PASSWORD Hola1234
+ADD ./hardwaresolutions.sql /docker-entrypoint-initdb.d
+EXPOSE 3306
+
+# sudo docker build -t mysql-hardware-solutions:1.0 .
+# sudo docker tag mysql-hardware-solutions:1.0 adomargon/mysql-hardware-solutions:1.0
+# sudo docker push adomargon/mysql-hardware-solutions:1.0
+
+# sudo docker run -d --name mysql-hardware-solutions -p 3306:3306 mysql-hardware-solutions:1.0
+# sudo docker exec -it mysql-hardware-solutions mysql -u root -p

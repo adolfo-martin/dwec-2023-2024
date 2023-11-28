@@ -1,0 +1,40 @@
+version: "3.1"
+
+networks:
+
+  container_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 11.0.0.0/24
+          gateway: 11.0.0.1
+
+services:
+
+  database_server:
+    container_name: database_server
+    image: adomargon/mysql-hardware-solutions:1.0
+    restart: always
+    ports:
+      - "3306:3306"
+    hostname: database_server
+    networks:
+      container_net:
+        ipv4_address: 11.0.0.2
+
+  pdf_server:
+    container_name: pdf_server
+    image: adomargon/php-mysqli-mpdf:1.0
+    restart: always
+    ports:
+      - "10000:80"
+    volumes:
+      - ./src:/var/www/html/pdf/
+    hostname: pdf_server
+    depends_on:
+      - database_server
+
+    networks:
+      container_net:
+        ipv4_address: 11.0.0.3
