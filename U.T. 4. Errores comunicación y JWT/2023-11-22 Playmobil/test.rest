@@ -1,0 +1,20 @@
+### Chequeo que haga bien la validacion
+POST http://127.0.0.1:8081/api/login_user
+content-type: application/x-www-form-urlencoded
+
+username=sonia.silverado
+&password=s
+
+#-----------------------------------
+
+### Retrieve series success
+GET http://127.0.0.1:8082/api/series
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmlhLnNpbHZlcmFkbyIsImZpcnN0bmFtZSI6IlNvbmlhIiwibGFzdG5hbWUiOiJTaWx2ZXJhZG8iLCJpYXQiOjE3MDA2MzgxODMsImV4cCI6MTcwMDY1MjU4M30.mh1hj06soKSLp6wKu3HqsYUTF2JGa5GWVuKjxfFzxoI
+
+### Retrieve boxes success
+GET http://127.0.0.1:8082/api/serie/7bc17d34-6858-4b51-9ccd-7e280ec3b5be/boxes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmlhLnNpbHZlcmFkbyIsImZpcnN0bmFtZSI6IlNvbmlhIiwibGFzdG5hbWUiOiJTaWx2ZXJhZG8iLCJpYXQiOjE3MDA2MzgxODMsImV4cCI6MTcwMDY1MjU4M30.mh1hj06soKSLp6wKu3HqsYUTF2JGa5GWVuKjxfFzxoI
+
+### Retrieve box by uuid success
+GET http://127.0.0.1:8082/api/box/df94b9ba-d532-46fb-a3b4-7c2aacf4f770
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmlhLnNpbHZlcmFkbyIsImZpcnN0bmFtZSI6IlNvbmlhIiwibGFzdG5hbWUiOiJTaWx2ZXJhZG8iLCJpYXQiOjE3MDA2MzgxODMsImV4cCI6MTcwMDY1MjU4M30.mh1hj06soKSLp6wKu3HqsYUTF2JGa5GWVuKjxfFzxoI
