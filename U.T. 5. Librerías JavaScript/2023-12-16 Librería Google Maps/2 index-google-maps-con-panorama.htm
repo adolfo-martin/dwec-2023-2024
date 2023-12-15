@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps de Lorca</title>
+
+    <style>
+        body {
+            background-color: olive;
+            height: 100vh;
+            min-height: 100vh;
+        }
+
+        #tDivMap {
+            width: 75%;
+            height: 75%;
+        }
+
+        #tDivPanorama {
+            width: 200px;
+            height: 150px;
+            border: solid 5px red;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tDivMap"></div>
+    <div id="tDivPanorama"></div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfulz2jpJ3DGJQRHy-cpOjARGoGIUSLY8&callback=initMap">
+        </script>
+
+    <script>
+        function initMap() {
+            const mapLocation = { lat: 37.674064, lng: -1.695572 };
+
+            // Creamos un mapa
+            const map = new google.maps.Map(
+                tDivMap,
+                {
+                    center: mapLocation,
+                    zoom: 16,
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    //mapTypeId: google.maps.MapTypeId.SATELLITE,
+                }
+            );
+
+            //Creamos un marcador
+            const positionSchool = new google.maps.LatLng(37.676664, -1.694472);
+            const markerSchool = new google.maps.Marker({
+                position: positionSchool,
+                map,
+                title: 'I.E.S. Ramón Arcas Meca',
+                icon: './logo_arcas.jpg',
+            });
+
+            const markerTrainStation = new google.maps.Marker({
+                position: new google.maps.LatLng(37.672091, -1.696290),
+                map,
+                title: 'Estación de Renfe',
+                icon: './renfe.svg',
+            });
+
+            const panorama = new google.maps.StreetViewPanorama(
+                tDivPanorama,
+                {
+                    position: positionSchool,
+                    pov: { heading: 130, pitch: 10 },
+                }
+            );
+        }
+    </script>
+</body>
+
+</html>

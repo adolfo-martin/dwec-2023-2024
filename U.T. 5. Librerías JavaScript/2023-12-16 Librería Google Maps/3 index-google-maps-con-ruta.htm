@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps de Lorca</title>
+
+    <style>
+        body {
+            background-color: olive;
+            height: 100vh;
+            min-height: 100vh;
+        }
+
+        #tDivMap {
+            width: 75%;
+            height: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tDivMap"></div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfulz2jpJ3DGJQRHy-cpOjARGoGIUSLY8&callback=initMap">
+        </script>
+
+    <script>
+        function initMap() {
+            const mapLocation = { lat: 37.674064, lng: -1.695572 };
+
+            // Creamos un mapa
+            const map = new google.maps.Map(
+                tDivMap,
+                {
+                    center: mapLocation,
+                    zoom: 16,
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    //mapTypeId: google.maps.MapTypeId.SATELLITE,
+                }
+            );
+
+            //Creamos la ruta a partir del origen y el destino
+            const positionSchool = new google.maps.LatLng(37.676664, -1.694472);
+            const positionTrainStation = new google.maps.LatLng(37.672091, -1.696290);
+
+            const routeRenderer = new google.maps.DirectionsRenderer({ map });
+            const routeData = {
+                origin: positionTrainStation,
+                destination: positionSchool,
+                travelMode: 'WALKING', // "DRIVING" "WALKING" "TRANSIT" "BICYCLING"
+            }
+            const routeService = new google.maps.DirectionsService();
+            routeService.route(
+                routeData,
+                function (response, status) {
+                    if (status === 'OK')
+                        routeRenderer.setDirections(response);
+                }
+            )
+        }
+    </script>
+</body>
+
+</html>
