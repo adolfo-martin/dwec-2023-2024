@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/components/TrafficLightComponent.js"></script>
+
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", _ => {
+            const trafficlightOne = document.querySelector('#tTrlOne');
+
+            trafficlightOne.addEventListener('lightswitched', e => {
+                const carOne = document.querySelector('#tDivCarOne');
+                switch (e.detail.light) {
+                    case 'RED':
+                        carOne.style.animationPlayState = 'paused';
+                        break;
+                    case 'ORANGE':
+                        break;
+                    case 'GREEN':
+                        carOne.style.animationPlayState = 'running';
+                        break;
+                }
+            });
+
+
+            const trafficlightTwo = document.querySelector('#tTrlTwo');
+
+            trafficlightTwo.addEventListener('lightswitched', e => {
+                const carTwo = document.querySelector('#tDivCarTwo');
+                switch (e.detail.light) {
+                    case 'RED':
+                        carTwo.style.animationPlayState = 'paused';
+                        break;
+                    case 'ORANGE':
+                        break;
+                    case 'GREEN':
+                        carTwo.style.animationPlayState = 'running';
+                        break;
+                }
+            });
+
+
+            const trafficlightThree = document.querySelector('#tTrlThree');
+
+            trafficlightThree.addEventListener('lightswitched', e => {
+                const carThree = document.querySelector('#tDivCarThree');
+                switch (e.detail.light) {
+                    case 'RED':
+                        carThree.style.animationPlayState = 'paused';
+                        break;
+                    case 'ORANGE':
+                        break;
+                    case 'GREEN':
+                        carThree.style.animationPlayState = 'running';
+                        break;
+                }
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <traffic-light id="tTrlOne" duration-red="5" duration-orange="1" duration-green="5"></traffic-light>
+    <traffic-light id="tTrlTwo" duration-red="15" duration-orange="2" duration-green="10"></traffic-light>
+    <traffic-light id="tTrlThree" duration-red="3" duration-orange="1" duration-green="2"></traffic-light>
+
+    <div class="car" id="tDivCarOne"></div>
+    <div class="car" id="tDivCarTwo"></div>
+    <div class="car" id="tDivCarThree"></div>
+</body>
+
+</html>

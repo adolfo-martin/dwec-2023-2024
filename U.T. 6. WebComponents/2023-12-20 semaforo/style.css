@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+traffic-light {
+    margin: 20px;
+    position: absolute;
+}
+
+traffic-light#tTrlTwo {
+    top: 30%;
+}
+
+traffic-light#tTrlThree {
+    top: 60%;
+}
+
+.car {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    background-color: blue;
+    animation: car-moving 5s linear 0s infinite alternate both;
+    animation-play-state: paused;
+
+    &#tDivCarOne {
+        top: 20%;
+    }
+
+    &#tDivCarTwo {
+        top: 50%;
+    }
+
+    &#tDivCarThree {
+        top: 80%;
+    }
+}
+
+@keyframes car-moving {
+    from {
+        left: 20%;
+    }
+
+    to {
+        left: 80%;
+    }
+}
