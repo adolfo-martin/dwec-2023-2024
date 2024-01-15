@@ -1,0 +1,25 @@
+:host {
+    border: solid 5px var(--angular-red);
+    border-radius: 15px;
+    margin: 25px;
+    padding: 25px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    color: var(--angular-red);
+    margin-top: 15px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--angular-red);
+    margin: 15px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+}

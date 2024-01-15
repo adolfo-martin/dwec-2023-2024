@@ -1,0 +1,22 @@
+:root {
+    --angular-red: #f51c1c;
+    --page-background: #f9dfe3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--page-background);
+    display: grid;
+    place-items: center;
+}
+
+hola-mundo {
+    transform: rotate(-30deg);
+    transform-origin: center;
+}
