@@ -1,0 +1,10 @@
+:host {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
