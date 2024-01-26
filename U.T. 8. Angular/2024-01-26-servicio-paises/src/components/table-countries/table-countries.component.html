@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <th>País</th>
+            <th>Capital</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="countries$ | async as countries">
+        <tr *ngFor="let country of countries">
+            <td>{{country.name.common}}</td>
+            <td>{{country.capital}}</td>
+        </tr>
+    </tbody>
+</table>

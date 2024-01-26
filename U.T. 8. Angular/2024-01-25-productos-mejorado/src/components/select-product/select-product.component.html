@@ -1,0 +1,4 @@
+<label>Producto: </label>
+<select *ngIf="products">
+    <option *ngFor="let product of products" [value]="product.uuid">{{product.name}}</option>
+</select>

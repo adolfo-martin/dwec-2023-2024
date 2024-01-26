@@ -1,0 +1,6 @@
+<ol *ngIf="productos">
+    <li>hola</li>
+    <li *ngFor="let producto of productos">
+        {{ producto.nombre + ' - ' + producto.precio + ' euros' }}
+    </li>
+</ol>

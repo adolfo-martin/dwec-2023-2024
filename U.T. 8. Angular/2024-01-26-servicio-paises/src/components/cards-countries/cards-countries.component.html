@@ -1,0 +1,4 @@
+<div *ngIf="countries$ | async as countries">
+    <card-country [name]="country.name.common" [capital]="country.capital" [population]="country.population"
+        [area]="country.area" [flag]="country.flags.svg" *ngFor="let country of countries"></card-country>
+</div>

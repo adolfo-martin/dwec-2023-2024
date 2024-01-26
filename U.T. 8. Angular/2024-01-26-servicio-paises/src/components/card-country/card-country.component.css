@@ -1,0 +1,12 @@
+:host {
+    display: inline-flex;
+    flex-direction: column;
+    border: solid 5px blue;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    width: 200px;
+}
+
+img {
+    width: 100px;
+}
