@@ -1,0 +1,5 @@
+<div *ngIf="game$ | async as game">
+    <header>{{game.title}}</header>
+
+    <img [src]="game.image">
+</div>

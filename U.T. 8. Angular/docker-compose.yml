@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  web:
+    image: adomargon/node-freegames:1.2
+    container_name: node-freegames
+    ports:
+      - "3000:3000"

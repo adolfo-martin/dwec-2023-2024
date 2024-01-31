@@ -1,0 +1,12 @@
+div {
+    display: inline-block;
+    border: solid 5px blue;
+    border-radius: 1rem;
+    box-shadow: -5px 5px 10px blue;
+    padding: 0.5rem;
+}
+
+header {
+    text-transform: uppercase;
+    font-weight: bold;
+}
