@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GamesService } from '../services/games.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -13,7 +13,8 @@ import { GameT } from '../entities/game.type';
 })
 export class CardGameComponent implements OnInit {
 
-  @Input('game') public _game: string = '';
+  @Input('game') _game: string = '';
+  @Output('cardliked') private _emitter = new EventEmitter();
 
   game$: Observable<GameT> = {} as Observable<GameT>;
 
@@ -24,4 +25,9 @@ export class CardGameComponent implements OnInit {
     this.game$ = this._service.getGameById$(this._game);
   }
 
+  // @ts-ignore
+  marcarLike(e) {
+    e.target.textContent = '🧡';
+    this._emitter.emit();
+  }
 }

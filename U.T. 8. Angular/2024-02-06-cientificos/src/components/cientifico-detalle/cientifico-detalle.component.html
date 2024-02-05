@@ -1,0 +1,14 @@
+<div *ngIf="cientifico$ | async as cientifico">
+    <div>
+        <label>Nombre: </label>
+        <span>{{cientifico.nombre}}</span>
+    </div>
+    <div>
+        <label>Área de estudio: </label>
+        <span>{{cientifico.areaEstudio}}</span>
+    </div>
+    <div>
+        <label>Nacionalidad: </label>
+        <span>{{cientifico.nacionalidad}}</span>
+    </div>
+</div>

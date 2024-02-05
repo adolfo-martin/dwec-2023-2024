@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+app-root {
+    background-color: yellow;
+    height: 100%;
+}

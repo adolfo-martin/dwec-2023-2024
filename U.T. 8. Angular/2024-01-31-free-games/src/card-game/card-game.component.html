@@ -1,5 +1,11 @@
-<div *ngIf="game$ | async as game">
+<div *ngIf="game$ | async as game; else waiting">
     <header>{{game.title}}</header>
+    <p (click)="marcarLike($event)">🤍</p>
 
     <img [src]="game.image">
+    <p>{{game.releaseDate}}</p>
 </div>
+
+<ng-template #waiting>
+    <p>Recuperando información del servidor</p>
+</ng-template>

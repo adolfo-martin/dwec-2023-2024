@@ -1,0 +1,4 @@
+<label>{{label}}</label>
+<select *ngIf="people$ | async as people">
+    <option *ngFor="let person of people" [value]="person.id">{{person.name}}</option>
+</select>
