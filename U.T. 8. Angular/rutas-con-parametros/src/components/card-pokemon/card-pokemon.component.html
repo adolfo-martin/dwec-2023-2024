@@ -1,0 +1,6 @@
+<!-- Hay que poner el *ngIf en alguna etiqueta -->
+<!-- aquí es donde se produce la operación asíncrona -->
+<div *ngIf="pokemon$ | async as pokemon">
+    <header>{{pokemon.name}}</header>
+    <img [src]="pokemon.image">
+</div>

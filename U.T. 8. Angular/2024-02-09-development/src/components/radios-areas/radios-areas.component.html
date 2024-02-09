@@ -1,0 +1,10 @@
+<div *ngIf="areas$ | async as areas; else loading">
+    <label *ngFor="let area of areas">
+        <input type="radio" name="area" [value]="area.id" (change)="gotoTabFrameworks($event)">
+        {{area.name}}
+    </label>
+</div>
+
+<ng-template #loading>
+    <p>Recuperando datos. Espere, por favor.</p>
+</ng-template>

@@ -1,0 +1,22 @@
+header {
+    background-color: var(--color-30);
+    color: white;
+    font-size: 3rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+nav {
+    & ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style: none;
+    }
+
+    & a {
+        text-decoration: none;
+        color: var(--color-10);
+    }
+}

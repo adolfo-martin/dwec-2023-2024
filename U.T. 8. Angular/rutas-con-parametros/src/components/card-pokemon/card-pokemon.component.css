@@ -1,0 +1,15 @@
+div {
+    display: inline-block;
+    border: solid 5px green;
+    box-shadow: 10px 10px 10px green;
+}
+
+header {
+    font-weight: bold;
+}
+
+/* AQUI TENEIS LOS DOS FORMATOS DE EMPLEAR LAS RUTAS
+ARRIBA: CON ROUTERLINK
+ABAJO: CON REDIRECCIONES
+
+*/

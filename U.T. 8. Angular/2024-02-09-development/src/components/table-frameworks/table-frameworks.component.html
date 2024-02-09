@@ -1,0 +1,16 @@
+<table *ngIf="frameworks$ | async as frameworks; else loading">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let framework of frameworks">
+            <td>{{framework.name}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #loading>
+    <p>Recuperando datos. Espere, por favor.</p>
+</ng-template>

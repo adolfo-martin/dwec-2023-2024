@@ -1,0 +1,5 @@
+<select *ngIf="pokemons$ | async as pokemons">
+    <option *ngFor="let pokemon of pokemons" [value]="pokemon">{{pokemon}}</option>
+</select>
+
+<!-- EL MIO NO FUNCIONA, PERO EL DE JUAN SI -->
