@@ -1,0 +1,6 @@
+<div *ngIf="categories$ | async as categories">
+    <label *ngFor="let category of categories">
+        <input type="radio" name="category" [value]="category.id" (change)="gotoTabProducts($event)">
+        {{category.name}}
+    </label>
+</div>

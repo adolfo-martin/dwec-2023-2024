@@ -28,7 +28,9 @@ export class TableFrameworksComponent implements OnInit {
         // @ts-ignore
         map(frameworks => frameworks.map(frameworkId => this._service.getFrameworkById$(frameworkId))),
         // @ts-ignore
-        zip(frameworks),
+        switchMap(frameworks =>
+          zip(...frameworks),
+        ),
 
         // mergeMap(frameworks => frameworks),
         // tap(console.log),

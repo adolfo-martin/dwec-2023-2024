@@ -1,0 +1,17 @@
+<div *ngIf="country$ | async as country">
+    <span class="like" (click)="reportLike($event)">🤍</span>
+
+    <label>Nombre:</label>
+    <span>{{country.name}}</span>
+
+    <label>Capital:</label>
+    <span>{{country.capital}}</span>
+
+    <label>Superficie:</label>
+    <span>{{country.area}}</span>
+
+    <label>Población:</label>
+    <span>{{country.population}}</span>
+
+    <img [src]="country.flag">
+</div>

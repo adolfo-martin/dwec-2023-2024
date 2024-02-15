@@ -1,0 +1,10 @@
+<h1>Países</h1>
+
+<hero-country country="ESP" (countryLiked)="reportLikeSpain($event)"
+    (countryLoaded)="reportLoaded($event)"></hero-country>
+
+<hero-country country="COL"></hero-country>
+
+<ng-template #message>
+    <div>Recuperando información del servidor</div>
+</ng-template>

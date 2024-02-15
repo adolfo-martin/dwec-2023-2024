@@ -1,0 +1,15 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="products$ | async as products">
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>
+                <a routerLink="/products/{{product.id}}">{{product.name}}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

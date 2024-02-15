@@ -1,0 +1,8 @@
+<h1 *ngIf="categoryName; else elsedecanovas">Productos de la categoría {{categoryName}}</h1>
+
+<ng-template #elsedecanovas>
+    <h1>Productos</h1>
+</ng-template>
+
+<select-products></select-products>
+<!-- <table-products></table-products> -->

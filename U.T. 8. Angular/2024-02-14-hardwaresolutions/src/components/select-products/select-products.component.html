@@ -1,0 +1,5 @@
+<select *ngIf="products$ | async as products" (change)="gotoProduct($event)">
+    <option *ngFor="let product of products" [value]="product.id">
+        {{product.name}}
+    </option>
+</select>
